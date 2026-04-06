@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     
-                    sh 'docker build -t pricelist-app:latest .'
+                    bat 'docker build -t pricelist-app:latest .'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
         stage('Deploy to K8s') {
             steps {
                 echo 'Deploying to Kubernetes Cluster...'
-                sh 'kubectl apply -f k8s-deployment.yaml'
+                bat 'kubectl apply -f k8s-deployment.yaml'
             }
         }
     }
